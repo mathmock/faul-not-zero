@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<title>塁乗和非零判定</title>
+	<link rel="stylesheet" href="../static/style.css">
+</head>
+
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+<body>
+	<div class="container">
+		<h1>
+			<p>\(S_m(n) = 1^m + 2^m + 3^m + \dots + n^m \)</p>
+		</h1>
+		<div class="top-section">
+			<table class="parameter" border="1">
+				<tr>
+					<td>$$m$$</td>
+					<td class="tall-cell"><label for="index_m"></label><input type="number" id="index_m"></td>
+				</tr>
+				<tr>
+					<td>$$a$$</td>
+					<td class="tall-cell"><label for="index_a"></label><input type="number" id="index_a"></td>
+				</tr>
+				<tr>
+					<td>$$b$$</td>
+					<td class="tall-cell"><label for="index_b"></label><input type="number" id="index_b"></td>
+				</tr>
+				<tr>
+					<td>$$c$$</td>
+					<td class="tall-cell"><label for="index_c"></label><input type="number" id="index_c"></td>
+				</tr>
+			</table>
+		</div>
+
+		<div class="button-wrapper">
+			<button type="button" id="calculate-button" onclick="clickButton()">$$Calcurate$$</button>
+		</div>
+
+		<hr>
+		<div class="bottom-section">
+			<table class="result" border="1">
+				<tr>
+					<td>$$a-bc$$</td>
+					<td class="tall-cell"><label for="divisor"></label><input type="number" id="divisor" disabled></td>
+				</tr>
+				<tr>
+					<td> \[
+						b \cdot S_m\left(\frac{a}{b}\right) \bmod \left| a - bc \right|
+						\]</td>
+					<td class="tall-cell"><label for="remainder"></label><input type="number" id="remainder" disabled>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+	<script src="../static/script.js"></script>
+</body>
+
+</html>

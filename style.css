@@ -1,0 +1,63 @@
+@charset "UTF-8";
+
+body {
+	background-color: aqua;
+}
+
+h1 {
+	width: 75%;
+	margin: 20px auto 10px auto;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+input {
+	width: 95%;
+	height: 95%;
+	box-sizing: border-box;
+	/*borderやpadding込みのサイズとしてwidth,heightを認識*/
+	font-size: 24px;
+}
+
+.container{
+	width: 95%;
+	margin: auto;
+}
+
+.parameter {
+	width: 50%;
+	margin: 50px auto;
+}
+
+.result {
+	width: 50%;
+	margin: 50px auto;
+}
+
+.tall-cell {
+	height: 80px;
+	display: flex;
+	/* 内部レイアウトがFlexboxモードになり、柔軟な位置設定が可能に*/
+	justify-content: center;
+	align-items: center;
+}
+
+.button-wrapper {
+	display: flex;
+	justify-content: center;
+	/* 横方向の中央寄せ */
+	align-items: center;
+	/* 縦方向の中央寄せ（高さがある場合） */
+	height: 100px;
+
+}
+
+#calculate-button {
+	width: 70%;
+	height: 90%;
+	font-size: 30px;
+	display: flex;
+	align-items: center;    /* 縦中央揃え */
+	justify-content: center;/* 横中央揃え */
+}
