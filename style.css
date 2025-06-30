@@ -10,6 +10,7 @@ input {
 	box-sizing: border-box;
 	/*borderやpadding込みのサイズとしてwidth,heightを認識*/
 	font-size: 24px;
+	text-align: center;
 }
 
 .container{
