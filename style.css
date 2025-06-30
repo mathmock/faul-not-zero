@@ -4,14 +4,6 @@ body {
 	background-color: aqua;
 }
 
-h1 {
-	width: 50%;
-	margin: 20px auto 10px auto;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-
 input {
 	width: 95%;
 	height: 95%;
