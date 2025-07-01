@@ -1,5 +1,5 @@
 /**
- * 
+ * a/b=0 c=3 mが偶数で計算にずれ
  */
 
 // ベルヌーイ数 B0〜B20 （B_odd は 1 を除き 0）
@@ -95,11 +95,11 @@ function minMod(num, mod) {
 function calcOwn(m, d) {
 	if (m >= 3 && m % 2 === 1 && d % 4 === 0) return 0; // 例外処理
 
-	d == Math.abs(d);
+	d == Math.abs(d); // 割る数を絶対値にする
 
 	let sgn = 1;
 
-	if (m % 2 === 0) sgn = -1;
+	if (m % 2 === 1) sgn = -1;
 
 	let group = [];
 
@@ -132,6 +132,7 @@ function calcOwn(m, d) {
 	}
 
 	ans == sgn * ans;
+	console.log("m = " + m + " d = " + d + " S_m(d) mod d = " + ans);
 	return ans;
 }
 
@@ -144,7 +145,7 @@ function sumKthPower(m, d, n) {
 		const B = bernoulli[j];
 		sum += comb(m + 1, j) * B * n ** (m + 1 - j);
 	}
-	return (Math.round(sum / (m + 1))) % d;
+	return (Math.round(sum / (m + 1))) % d; // ここで実際の数値とずれが生じている
 }
 
 // S_m(n) mod d を計算, rが大きい場合主にここで容量を食う
@@ -189,13 +190,17 @@ function clickButton() {
 
 	let SCmod = 0;
 
-	if (m <= 20) { // 20乗以下の時は公式を参照にして計算する
+	if (m <= 0) { // 20乗以下の時は公式を参照にして計算する
 		SCmod = sumKthPower(m, divisor, c);
 	} else { // 実際に塁上の剰余を計算しながら答えを出す
 		SCmod = Smod(m, divisor, c);
 	}
+	
+	let calOwn = calcOwn(m, divisor);
 
-	let ans = b * SCmod + g * calcOwn(m, divisor);
+	let ans = b * SCmod + g * calOwn;
+	
+	console.log(b+ " * " +SCmod+ " + "+ g +" * "+ calOwn);
 
 	ans = minMod(ans, divisor * g); // 最小剰余を計算
 
