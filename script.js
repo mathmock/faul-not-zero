@@ -152,13 +152,7 @@ function clickButton() {
 
 	divisor = Math.abs(divisor / g);
 
-	let SCmod = 0;
-
-	if (m <= 0) { // 20乗以下の時は公式を参照にして計算する
-		SCmod = sumKthPower(m, divisor, c);
-	} else { // 実際に塁上の剰余を計算しながら答えを出す
-		SCmod = Smod(m, divisor, c);
-	}
+	let SCmod = Smod(m, divisor, c);
 	
 	let calOwn = calcOwn(m, divisor);
 
