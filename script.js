@@ -1,27 +1,3 @@
-/**
- * a/b=0 c=3 mが偶数で計算にずれ
- */
-
-// ベルヌーイ数 B0〜B20 （B_odd は 1 を除き 0）
-const bernoulli = [
-	1, 1 / 2, 1 / 6, 0,
-	-1 / 30, 0, 1 / 42, 0,
-	-1 / 30, 0, 5 / 66, 0,
-	-691 / 2730, 0, 7 / 6, 0,
-	-3617 / 510, 0, 43867 / 798, 0,
-	-174611 / 330
-];
-
-////////////////////////////////////////////////////////////////////////////////////////////////
-
-// 二項係数
-function comb(n, k) {
-	let r = 1;
-	for (let i = 1; i <= k; i++) {
-		r = r * (n - k + i) / i;
-	}
-	return r;
-}
 
 // 最大公約数 (GCD) を求める関数 (負の数になることもあり)
 function gcd(x, y) {
@@ -134,18 +110,6 @@ function calcOwn(m, d) {
 	ans == sgn * ans;
 	console.log("m = " + m + " d = " + d + " S_m(d) mod d = " + ans);
 	return ans;
-}
-
-/* * sumKthPower(n, m): 1^m + … + n^m を返す
- * m は整数（ここでは 0〜20 を想定）
- */
-function sumKthPower(m, d, n) {
-	let sum = 0;
-	for (let j = 0; j <= m; j++) {
-		const B = bernoulli[j];
-		sum += comb(m + 1, j) * B * n ** (m + 1 - j);
-	}
-	return (Math.round(sum / (m + 1))) % d; // ここで実際の数値とずれが生じている
 }
 
 // S_m(n) mod d を計算, rが大きい場合主にここで容量を食う
